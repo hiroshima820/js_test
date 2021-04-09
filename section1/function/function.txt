@@ -1,0 +1,222 @@
+JavaScript よく使う関数
+
+## 文字列 String
+
+string.length  長さ
+string.indexOf() 検索(位置)
+string.slice() 取り出し
+string.substring() 〇文字目から〇文字だけ取り出す
+string.split() 分割
+string.concat() 連結
+string.trim() 両端から空白などを取り除く
+string.startsWith() 指定文字列で始まるか
+string.includes() 検索(含まれているか
+string.toLowerCase() 小文字に変換
+string.replace() 置き換え
+
+## 正規表現を使えるメソッド(抜粋)
+string.replace()
+string.match()
+string.search()
+string.split()
+
+よく使う正規表現
+[A-Z] A~Zの間の１文字
+\ 次の文字をエスケープ
+^ 行の先頭にマッチ
+$ 行の末尾にマッチ
+* 直前文字0回以上の繰り返しにマッチ
++ 直前文字1回以上の繰り返しにマッチ
+? 直前文字0回か1回の出現にマッチ
+{n} 直前の文字をn回一致
+\w 文字に一致
+\d 数字に一致
+\s 空白文字に一致
+
+## 配列 Array
+
+array.length 長さ
+array.join() 結合
+array.unshift() 先頭に要素追加
+array.push() 末尾に要素追加
+array.shift() 先頭を取り除く
+array.pop() 末尾を取り除く
+array.splice() 一部を置き換え
+array.concat() 連結
+array.indexOf() 要素検索
+array.sort()	ソート
+array.flat() ネストされた配列を平らに
+array.includes() 特定要素が含まれているか
+array.forEach(callback) 各要素にcallback ※Objectには使えない
+array.find(callback) 条件を満たした最初の配列を返す
+array.map(callback) コールバックで新しい配列を生成
+array.filter(callback) 条件を満たす新しい配列を生成
+array.reduce(callback) 配列を累積(全部足したり)
+{...array} 配列をオブジェクトに変換
+
+## 連想配列 Map
+ 
+new Map
+map.set()
+map.get()
+map.has()
+map.delete()
+map.keys()
+map.values()
+map.forEach(callback)
+map.keys(callback)
+map.values(callback)
+map.entries(callback)
+
+new Set 重複値を取り除く
+
+## オブジェクト Object
+
+object.entries)() オブジェクトを配列に変換
+
+## 数字 Math
+
+Math.floor() 切り捨て
+Math.ceil() 切り上げ
+Math.random() ランダム
+
+## データ
+
+type of 値 // 値がどんなタイプか(文字列か、数値かなど)
+値 instanceof オブジェクト
+
+## ブラウザ操作
+
+alert アラート
+confirm 確認メッセージ
+window.innerWidth 画面幅
+window.innerHeight 画面高さ
+location.href ページ移動
+location.search クエリを取得
+location.hash
+history.back
+history.forward
+history.pushState SPAで使用
+URLSearchParams クエリを取得
+
+window.scrollX 横のスクロール量
+window.scrollY 縦のスクロール量
+scrollTo(X,Y) 指定座標までスクロール
+
+## DOM
+
+DOMはHTML文書をツリー構造として扱う
+
+document.getElementById('#aaa')
+document.querySelector('#aaa')
+document.querySelectorAll('.box')
+
+document.createElement('タグ名') タグを生成する
+
+.appendChild(子ノード) ノード追加
+.insertBefore()
+.before()
+.after()
+.remove()
+
+.textContent テキスト要素
+.innerHTML HTML要素 //あまり使わない
+
+要素.属性 = '' 属性操作
+要素.setAttribute
+
+要素.classList.add クラス操作
+要素.classList.remove
+要素.classList.toggle
+要素.style.プロパティ名 // CSSで対応した方がいい
+
+## イベント
+
+addEventListener(イベント, callback, option)
+
+よく使うイベント
+click
+change
+input
+focus /blur フォーカスされたり外れたり
+keydown / keyup / keypress キー
+mousedown / mouseup / mousemove マウスがのったり外れたり
+mouseenter/ mouseleave / mouseover/mouseout
+
+document.DOMContentLoaded DOM構築完了(こちらの方が早い)
+window.load ページ読み込み完了 (画像読み込み後)
+
+selectstart
+
+touchstart / touchmove / touchend スマホ
+
+タッチ情報.offsetX
+event.changedTouches タッチの配列
+
+dragstart  /drag / dragend ドラッグドロップ
+dragenter/dragover/dragleave/drop
+
+scroll スクロールされたら -> Intersection Observer API
+
+addEventListener( e => {
+  e.preventdefault() // デフォルト処理の停止
+  e.stopPropagation() // イベントバブリングの停止
+})
+
+
+## フォーム
+
+document.forms.(idかname)
+インプット要素.value
+インプット要素.files
+
+ファイルは 
+const reader = new FileReader()
+reader.result //base64エンコード表示
+reader.readAsDataUrl(image)
+
+## 時間・処理のタイミング
+
+setTimeout(callback, ms) 時間後
+setInterval(callback, ms) 時間毎
+
+## 例外
+
+try{}catch( e ){}
+throw new Error
+## 非同期関係
+
+new Promise(ok,ng)
+Promiseインスタンス.then(callback)
+Promiseインスタンス.catch(callback)
+Promise.all(配列）
+
+async function xxx(){
+  await 関数名
+}
+
+fecth(url, options)
+
+XMLHttpRequest 古い方法
+
+## Parse
+
+JSON.parse()
+JSON.stringify()
+
+encodeURI()
+encodeURIComponent()
+
+decodeURI()
+decodeURIComponent()
+
+## ESモジュール
+
+export class名
+
+import { class名} from './ファイル名':
+
+## その他
+
+new Worker() Web Workerのインスタンス生成
+
